@@ -16,7 +16,8 @@ export function getCookieValue(
   nameOrOptions?: string | string[] | CookieParseOptions,
   options?: CookieParseOptions
 ): string | Record<string, string | undefined> | undefined {
-  const hasCtx = ctxOrName && typeof ctxOrName !== 'string' && !Array.isArray(ctxOrName);
+  const hasCtx =
+    ctxOrName && typeof ctxOrName !== 'string' && !Array.isArray(ctxOrName);
   let ctx, name, cookieOptions;
 
   if (hasCtx) {
@@ -35,8 +36,8 @@ export function getCookieValue(
 
   return Array.isArray(name)
     ? name.reduce<Record<string, string>>((acc, curr) => {
-      acc[curr] = cookies[curr];
-      return acc;
-    }, {})
+        acc[curr] = cookies[curr];
+        return acc;
+      }, {})
     : cookies[name as string];
 }
