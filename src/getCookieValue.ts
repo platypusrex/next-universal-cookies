@@ -3,20 +3,21 @@ import { NextContext } from './types';
 import { parseCookies } from './parseCookies';
 
 export function getCookieValue(
-  name: string,
+  name: string | string[],
   options?: CookieParseOptions
 ): string | undefined;
 export function getCookieValue(
   ctx: NextContext,
-  name: string,
+  name: string | string[],
   options?: CookieParseOptions
 ): string | undefined;
 export function getCookieValue(
-  ctxOrName?: NextContext | string,
-  nameOrOptions?: string | CookieParseOptions,
+  ctxOrName?: NextContext | string | string[],
+  nameOrOptions?: string | string[] | CookieParseOptions,
   options?: CookieParseOptions
-): string | undefined {
-  const hasCtx = ctxOrName && typeof ctxOrName !== 'string';
+): string | Record<string, string | undefined> | undefined {
+  const hasCtx =
+    ctxOrName && typeof ctxOrName !== 'string' && !Array.isArray(ctxOrName);
   let ctx, name, cookieOptions;
 
   if (hasCtx) {
@@ -32,5 +33,11 @@ export function getCookieValue(
   const cookies = ctx
     ? parseCookies(ctx as NextContext, cookieOptions as CookieParseOptions)
     : parseCookies(cookieOptions as CookieParseOptions);
-  return cookies[name as string];
+
+  return Array.isArray(name)
+    ? name.reduce<Record<string, string>>((acc, curr) => {
+        acc[curr] = cookies[curr];
+        return acc;
+      }, {})
+    : cookies[name as string];
 }

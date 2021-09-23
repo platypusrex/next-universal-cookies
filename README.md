@@ -39,8 +39,11 @@ import { getCookieValue, parseCookies } from 'next-universal-cookies';
 // Parse all cookies
 const cookies = parseCookies(ctx);
 
-// Parse and get single cookie value
-const cookieValue = getCookieValue(ctx, 'cookie');
+// Parse and get single cookie value by name
+const cookieValue = getCookieValue(ctx, 'cookie'); // returns string
+
+// Parse and get multple cookie values by name
+const { cookie, cookie2 } = getCookieValue(ctx, ['cookie', 'cookie2']); // returns object of values
 ```
 
 ```typescript
@@ -96,7 +99,10 @@ import { getCookieValue, parseCookies } from 'next-universal-cookies';
 const cookies = parseCookies();
 
 // Parse and get single cookie value
-const cookieValue = getCookieValue('cookie');
+const cookieValue = getCookieValue('cookie'); // returns string
+
+// Parse and get multple cookie values by name
+const { cookie, cookie2 } = getCookieValue(ctx, ['cookie', 'cookie2']); // returns object of values
 ```
 
 ```typescript
