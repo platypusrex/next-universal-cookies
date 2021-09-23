@@ -1,0 +1,66 @@
+{
+  "name": "next-universal-cookies",
+  "author": "Frank Cooke",
+  "description": "Cookie helpers/utils for Next.js applications",
+  "keywords": [
+    "next.js",
+    "cookies"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/next-universal-cookies.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/next-universal-cookies.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/next-universal-cookies.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "peerDependencies": {
+    "next": ">= 9.4.*"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.4",
+    "@types/cookie": "^0.4.1",
+    "husky": "^7.0.2",
+    "size-limit": "^5.0.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "cookie": "^0.4.1"
+  }
+}
