@@ -7,8 +7,8 @@ describe('getCookieValue', () => {
       res: {},
       req: {
         headers: {
-          cookie: 'token=1234;foo=bar;'
-        }
+          cookie: 'token=1234;foo=bar;',
+        },
       },
     } as GetServerSidePropsContext;
 

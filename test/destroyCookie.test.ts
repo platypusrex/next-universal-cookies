@@ -14,22 +14,24 @@ describe('destroyCookie', () => {
       return undefined;
     });
 
-    const ctx = {
+    const ctx = ({
       res: {
         setHeader,
-        getHeader
+        getHeader,
       },
       req: {},
-    } as unknown as GetServerSidePropsContext;
+    } as unknown) as GetServerSidePropsContext;
 
     destroyCookie(ctx, 'mock-cookie');
 
     expect(getHeader).toHaveBeenCalledWith('Set-Cookie');
-    expect(setHeader).toHaveBeenCalledWith('Set-Cookie', ['mock-cookie=; Max-Age=-1']);
+    expect(setHeader).toHaveBeenCalledWith('Set-Cookie', [
+      'mock-cookie=; Max-Age=-1',
+    ]);
   });
   it('should set multiple cookie via document on the client', () => {
     Object.defineProperty(global.document, 'cookie', {
-      get(){
+      get() {
         return this.value || '';
       },
       set(value: any) {
@@ -44,4 +46,4 @@ describe('destroyCookie', () => {
 
     expect(document.cookie).toEqual('mock-cookie=; Max-Age=-1;');
   });
-})
+});

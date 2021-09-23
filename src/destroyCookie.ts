@@ -2,12 +2,15 @@ import { CookieParseOptions, CookieSerializeOptions, serialize } from 'cookie';
 import { getCookieHeadersWithCookie, isBrowser } from './utils';
 import { Cookie, NextContext } from './types';
 
-export function destroyCookie(name: string, options?: CookieSerializeOptions): void
+export function destroyCookie(
+  name: string,
+  options?: CookieSerializeOptions
+): void;
 export function destroyCookie(
   ctx: NextContext,
   name: string,
   options?: CookieSerializeOptions
-): void
+): void;
 export function destroyCookie(
   ctxOrName?: NextContext | string,
   nameOrOptions?: string | CookieSerializeOptions,
@@ -29,14 +32,17 @@ export function destroyCookie(
   const cookie: Cookie = {
     name: name as string,
     value: '',
-    options: { ...(cookieOptions as CookieParseOptions || {}), maxAge: -1 },
+    options: { ...((cookieOptions as CookieParseOptions) || {}), maxAge: -1 },
   };
 
   const res = (ctx as NextContext)?.res;
   if (res?.setHeader && res?.getHeader) {
     const setCookieHeaders = res.getHeader('Set-Cookie') || [];
 
-    const newSetCookieHeaders = getCookieHeadersWithCookie(cookie, setCookieHeaders);
+    const newSetCookieHeaders = getCookieHeadersWithCookie(
+      cookie,
+      setCookieHeaders
+    );
 
     res.setHeader('Set-Cookie', newSetCookieHeaders);
   }
