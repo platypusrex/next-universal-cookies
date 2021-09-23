@@ -1,7 +1,7 @@
 # 🍪 next-universal-cookies 🍪
 
-[![npm Package](https://img.shields.io/npm/v/next-merge-props.svg)](https://www.npmjs.org/package/next-merge-props)
-[![License](https://img.shields.io/npm/l/express.svg)](https://github.com/platypusrex/next-merge-props/blob/master/LICENSE)
+[![npm Package](https://img.shields.io/npm/v/next-universal-cookies.svg)](https://www.npmjs.org/package/next-universal-cookies)
+[![License](https://img.shields.io/npm/l/express.svg)](https://github.com/platypusrex/next-universal-cookies/blob/master/LICENSE)
 
 A proper collection of cookie helpers for use on both the client and server in Next.js applications
 
