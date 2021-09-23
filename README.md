@@ -2,6 +2,8 @@
 
 [![npm Package](https://img.shields.io/npm/v/next-universal-cookies.svg)](https://www.npmjs.org/package/next-universal-cookies)
 [![License](https://img.shields.io/npm/l/express.svg)](https://github.com/platypusrex/next-universal-cookies/blob/master/LICENSE)
+[![Coverage Status](https://coveralls.io/repos/github/platypusrex/next-universal-cookies/badge.svg?branch=chore/coveralls-github-action)](https://coveralls.io/github/platypusrex/next-universal-cookies?branch=chore/coveralls-github-action)
+![CI](https://github.com/platypusrex/next-merge-props/workflows/CI/badge.svg)
 
 A proper collection of cookie helpers for use on both the client and server in Next.js applications
 
