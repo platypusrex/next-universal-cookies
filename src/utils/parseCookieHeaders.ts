@@ -3,7 +3,7 @@ import { isNonEmptyString } from './isNonEmptyString';
 import { Cookie } from '../types';
 
 export const parseSetCookieHeaders = (headers: string[]): Cookie[] =>
-  headers.map((header) => {
+  headers.map(header => {
     /* Parses name and value parts. */
     const [nameAndValue, ...parts] = header.split(';').filter(isNonEmptyString);
     const [name, ...rawValue] = nameAndValue.split('=');

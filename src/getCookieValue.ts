@@ -2,13 +2,16 @@ import { CookieParseOptions } from 'cookie';
 import { NextContext } from './types';
 import { parseCookies } from './parseCookies';
 
-export function getCookieValue (name: string, options?: CookieParseOptions): string | undefined;
-export function getCookieValue (
+export function getCookieValue(
+  name: string,
+  options?: CookieParseOptions
+): string | undefined;
+export function getCookieValue(
   ctx: NextContext,
   name: string,
   options?: CookieParseOptions
 ): string | undefined;
-export function getCookieValue (
+export function getCookieValue(
   ctxOrName?: NextContext | string,
   nameOrOptions?: string | CookieParseOptions,
   options?: CookieParseOptions

@@ -7,13 +7,13 @@ describe('parseCookies', () => {
       res: {},
       req: {
         headers: {
-          cookie: 'token=1234;foo=bar;'
-        }
+          cookie: 'token=1234;foo=bar;',
+        },
       },
     } as GetServerSidePropsContext;
 
     const cookies = parseCookies(ctx);
-    expect(cookies).toMatchObject({ token: '1234', foo: 'bar' })
+    expect(cookies).toMatchObject({ token: '1234', foo: 'bar' });
   });
   it('should parse cookies on the client', () => {
     Object.defineProperty(document, 'cookie', {

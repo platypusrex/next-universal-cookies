@@ -14,13 +14,13 @@ describe('setCookie', () => {
       return undefined;
     });
 
-    const ctx = {
+    const ctx = ({
       res: {
         setHeader,
-        getHeader
+        getHeader,
       },
       req: {},
-    } as unknown as GetServerSidePropsContext;
+    } as unknown) as GetServerSidePropsContext;
 
     setCookie(ctx, {
       name: 'mock-cookie',
@@ -28,7 +28,9 @@ describe('setCookie', () => {
     });
 
     expect(getHeader).toHaveBeenCalledWith('Set-Cookie');
-    expect(setHeader).toHaveBeenCalledWith('Set-Cookie', ['mock-cookie=mock-cookie-value']);
+    expect(setHeader).toHaveBeenCalledWith('Set-Cookie', [
+      'mock-cookie=mock-cookie-value',
+    ]);
   });
   it('should set multipleCookies via server context', () => {
     const setHeader = jest.fn(() => {
@@ -40,13 +42,13 @@ describe('setCookie', () => {
       return undefined;
     });
 
-    const ctx = {
+    const ctx = ({
       res: {
         setHeader,
-        getHeader
+        getHeader,
       },
       req: {},
-    } as unknown as GetServerSidePropsContext;
+    } as unknown) as GetServerSidePropsContext;
 
     setCookie(ctx, [
       {
@@ -58,20 +60,20 @@ describe('setCookie', () => {
         value: 'mock-cookie-value-2',
         options: {
           path: '/my-path',
-          sameSite: 'strict'
-        }
+          sameSite: 'strict',
+        },
       },
     ]);
 
     expect(getHeader).toHaveBeenCalledWith('Set-Cookie');
-    expect(setHeader).toHaveBeenCalledWith('Set-Cookie',  [
+    expect(setHeader).toHaveBeenCalledWith('Set-Cookie', [
       'mock-cookie=mock-cookie-value',
-      'mock-cookie-2=mock-cookie-value-2'
+      'mock-cookie-2=mock-cookie-value-2; Path=/my-path; SameSite=Strict',
     ]);
   });
   it('should set multiple cookie via document on the client', () => {
     Object.defineProperty(global.document, 'cookie', {
-      get(){
+      get() {
         return this.value || '';
       },
       set(value: any) {
@@ -93,6 +95,8 @@ describe('setCookie', () => {
       },
     ]);
 
-    expect(document.cookie).toEqual('cookie=cookie-value;cookie-2=cookie-value-2;');
+    expect(document.cookie).toEqual(
+      'cookie=cookie-value;cookie-2=cookie-value-2;'
+    );
   });
-})
+});

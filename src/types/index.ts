@@ -3,7 +3,7 @@ import {
   GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
-  NextPageContext
+  NextPageContext,
 } from 'next';
 
 export interface Cookie {
@@ -12,6 +12,7 @@ export interface Cookie {
   options: CookieSerializeOptions;
 }
 
-export type NextContext = NextPageContext
+export type NextContext =
+  | NextPageContext
   | GetServerSidePropsContext
-  | { req: NextApiRequest; res: NextApiResponse; };
+  | { req: NextApiRequest; res: NextApiResponse };

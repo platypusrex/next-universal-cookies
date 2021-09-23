@@ -16,7 +16,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14.15.4"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -55,6 +55,7 @@
     "@size-limit/preset-small-lib": "^5.0.4",
     "@types/cookie": "^0.4.1",
     "husky": "^7.0.2",
+    "next": "latest",
     "size-limit": "^5.0.4",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
