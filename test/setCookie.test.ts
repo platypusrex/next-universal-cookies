@@ -68,7 +68,7 @@ describe('setCookie', () => {
     expect(getHeader).toHaveBeenCalledWith('Set-Cookie');
     expect(setHeader).toHaveBeenCalledWith('Set-Cookie', [
       'mock-cookie=mock-cookie-value',
-      'mock-cookie-2=mock-cookie-value-2',
+      'mock-cookie-2=mock-cookie-value-2; Path=/my-path; SameSite=Strict',
     ]);
   });
   it('should set multiple cookie via document on the client', () => {
