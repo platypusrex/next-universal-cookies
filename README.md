@@ -102,7 +102,7 @@ const cookies = parseCookies();
 const cookieValue = getCookieValue('cookie'); // returns string
 
 // Parse and get multple cookie values by name
-const { cookie, cookie2 } = getCookieValue(ctx, ['cookie', 'cookie2']); // returns object of values
+const { cookie, cookie2 } = getCookieValue(['cookie', 'cookie2']); // returns object of values
 ```
 
 ```typescript
