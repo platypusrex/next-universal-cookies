@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/platypusrex/next-universal-cookies/compare/@release/1.1.1...@release/1.1.1) (2022-01-28)
+
+
+### Bug Fixes
+
+* incorrect badge link ([3d3ae5c](https://github.com/platypusrex/next-universal-cookies/commit/3d3ae5c5a962023234ec4eae3697fcdd5b86c556))
+
 ### [1.1.1](https://github.com/platypusrex/next-universal-cookies/compare/@release/1.1.0...@release/1.1.1) (2022-01-28)
 
 ## 1.1.0 (2022-01-09)
